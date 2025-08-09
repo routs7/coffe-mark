@@ -1,0 +1,47 @@
+{
+  "ru": {
+    "title": "Coffee Mark — Батумский вид и ароматный кофе",
+    "about": "Добро пожаловать в Coffee Mark — уютное кафе с видом на Батумское море, где подают свежесваренный кофе и десерты.",
+    "menu": "Меню",
+    "contact": "Контакты",
+    "address": "Батуми, Грузия",
+    "phone": "Телефон",
+    "email": "Email"
+  },
+  "en": {
+    "title": "Coffee Mark — Batumi View & Fresh Coffee",
+    "about": "Welcome to Coffee Mark — a cozy café with a view of the Batumi sea, serving freshly brewed coffee and desserts.",
+    "menu": "Menu",
+    "contact": "Contacts",
+    "address": "Batumi, Georgia",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "ka": {
+    "title": "Coffee Mark — ბათუმის ხედით და სურნელოვანი ყავით",
+    "about": "კეთილი იყოს თქვენი მობრძანება Coffee Mark-ში — კომფორტულ კაფეში ბათუმის ზღვის ხედით, სადაც მიირთმევთ ახალდადუღებულ ყავას და დესერტებს.",
+    "menu": "მენიუ",
+    "contact": "კონტაქტები",
+    "address": "ბათუმი, საქართველო",
+    "phone": "ტელეფონი",
+    "email": "ელ-ფოსტა"
+  },
+  "ar": {
+    "title": "كوفي مارك — إطلالة باتومي وقهوة طازجة",
+    "about": "مرحبًا بكم في كوفي مارك — مقهى مريح بإطلالة على بحر باتومي يقدم القهوة الطازجة والحلويات.",
+    "menu": "القائمة",
+    "contact": "اتصال",
+    "address": "باتومي، جورجيا",
+    "phone": "هاتف",
+    "email": "بريد إلكتروني"
+  },
+  "tr": {
+    "title": "Coffee Mark — Batum Manzarası ve Taze Kahve",
+    "about": "Coffee Mark'a hoş geldiniz — Batum deniz manzaralı, taze demlenmiş kahve ve tatlılar sunan samimi bir kafe.",
+    "menu": "Menü",
+    "contact": "İletişim",
+    "address": "Batum, Gürcistan",
+    "phone": "Telefon",
+    "email": "E-posta"
+  }
+}
