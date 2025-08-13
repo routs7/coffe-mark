@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Coffee Mark — Batumi</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <style>
+    /* Добавил мягкие кофейные тона и анимации */
+    body {
+      background-color: #faf7f2;
+      color: #3e2f27;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    header, footer {
+      background-color: #d7b89c;
+    }
+    .btn {
+      background-color: #8b5e3c;
+      color: white;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #70462b;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    iframe {
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/images/logo.jpg" alt="Coffee Mark" class="logo" />
+        <div class="brand-text">
+          <div class="name">Coffee Mark</div>
+          <div class="tagline" data-i18n="tagline">Batumi view & fresh coffee</div>
+        </div>
+      </div>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="#about" data-i18n="nav_about">О нас</a>
+        <a href="#menu" data-i18n="nav_menu">Меню</a>
+        <a href="#location" data-i18n="nav_location">Локация</a>
+        <a href="#contacts" data-i18n="nav_contact">Контакты</a>
+      </nav>
+
+      <div class="controls">
+        <select id="lang-switch" aria-label="Language selector">
+          <option value="ru">RU</option>
+          <option value="en">EN</option>
+          <option value="ka">KA</option>
+          <option value="ar">AR</option>
+          <option value="tr">TR</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-inner container">
+        <div class="hero-left">
+          <h1 id="hero-title">Coffee Mark</h1>
+          <p id="hero-sub" class="lead" data-i18n="hero_sub">Уютное кафе с видом на Батумское море. Свежесваренный кофе и домашние бургеры.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#menu" data-i18n="view_menu">Посмотреть меню</a>
+            <a class="btn btn-ghost" href="#location" data-i18n="how_find">Как найти</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <img src="assets/images/hero.jpg" alt="Кофе" class="hero-photo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 data-i18n="about_title">О нас</h2>
+          <p id="about-par" data-i18n="about_text">
+            Добро пожаловать в Coffee Mark — место для встреч, работы и отдыха. Мы готовим кофе с вниманием к деталям и подаём простые, вкусные блюда.
+          </p>
+          <ul class="meta">
+            <li><strong data-i18n="address_label">Адрес:</strong> <span id="addr">Леха и Марии Качинских, 8 блок С, Batumi View</span></li>
+            <li><strong data-i18n="phone_label">Телефон:</strong> <a href="tel:+995000000000" id="phone">+995 XXX XXX XXX</a></li>
+            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/coffee_mark_batumiview/" target="_blank">@coffee_mark_batumiview</a></li>
+          </ul>
+        </div>
+        <div class="about-photo">
+          <img src="assets/images/about.jpg" alt="Интерьер Coffee Mark" />
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="section menu container">
+      <h2 data-i18n="menu_title">Меню</h2>
+      <div class="menu-block">
+        <h3 data-i18n="menu_drinks">Напитки</h3>
+        <div class="table-wrap">
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th data-i18n="item">Напиток</th>
+                <th data-i18n="price_small">Мал.</th>
+                <th data-i18n="price_big">Бол.</th>
+              </tr>
+            </thead>
+            <tbody id="drinks-list"></tbody>
+          </table>
+          <p class="muted" data-i18n="hot_cold_note">Все напитки доступны горячими и холодными.</p>
+        </div>
+      </div>
+
+      <div class="menu-block">
+        <h3 data-i18n="menu_burgers">Бургеры</h3>
+        <div class="table-wrap">
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th data-i18n="item">Блюдо</th>
+                <th data-i18n="price">Цена (лари)</th>
+              </tr>
+            </thead>
+            <tbody id="burgers-list"></tbody>
+          </table>
+        </div>
+
+        <h4 data-i18n="menu_combos">Комбо и добавки</h4>
+        <div class="table-wrap">
+          <table class="menu-table narrow">
+            <tbody id="extras-list"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section id="location" class="section location container">
+      <h2 data-i18n="where_title">Локация</h2>
+      <p data-i18n="where_text">Мы находимся в комплексе Batumi View — заходите на кофе с видом на море.</p>
+      <div class="map">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2922.522493555828!2d41.6237684!3d41.6504385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x405d6d8fbbbe19c1%3A0x6c3b44e31b2a2f4c!2sBatumi%20View!5e0!3m2!1sru!2sge!4v1691760000000"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="section contacts container">
+      <h2 data-i18n="contact_title">Контакты</h2>
+      <div class="contacts-grid">
+        <div>
+          <p><strong data-i18n="address_label">Адрес:</strong> <span id="addr2">Леха и Марии Качинских, 8 блок С, Batumi View</span></p>
+          <p><strong data-i18n="phone_label">Телефон:</strong> <a href="tel:+995000000000">+995 XXX XXX XXX</a></p>
+          <p><strong data-i18n="email_label">Email:</strong> <a href="mailto:coffeemark@example.com">coffeemark@example.com</a></p>
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/coffee_mark_batumiview/" target="_blank">@coffee_mark_batumiview</a></p>
+        </div>
+        <div>
+          <form id="contact-form" class="contact-form" onsubmit="return false;">
+            <label for="name" data-i18n="contact_name">Имя</label>
+            <input id="name" type="text" placeholder="" />
+            <label for="message" data-i18n="contact_message">Сообщение</label>
+            <textarea id="message" rows="4" placeholder=""></textarea>
+            <button class="btn" id="send-btn" data-i18n="send_btn">Отправить</button>
+            <p class="muted" id="form-note" data-i18n="form_note">Форма статическая — сообщения можно отправлять на email.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-left">
+        <div class="small">© <span id="year"></span> Coffee Mark</div>
+        <div class="muted" data-i18n="footer_text">Уютное кафе в Батуми — кофе, бургеры, десерты.</div>
+      </div>
+      <div class="footer-right">
+        <a href="https://www.instagram.com/coffee_mark_batumiview/" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Плавное появление секций
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
